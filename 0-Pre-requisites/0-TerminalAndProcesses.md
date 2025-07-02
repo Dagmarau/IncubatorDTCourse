@@ -120,7 +120,7 @@ Let's explore processes by running two Python scripts at the same time in differ
      ```
 
     You can terminate these processes at any time by typing `Ctrl+c` in the corresponding terminal.
-    
+
 3. **Open a third terminal window** to inspect the processes, or open your task manager to inspect them:
    - PowerShell:
      ```powershell
@@ -168,3 +168,36 @@ You can also observe these processes using the **Windows Task Manager**:
    - Use the arrow keys to navigate and press `F1` for help or `F10` to exit.
 
 This is useful to identify which script is doing what, especially when running multiple similar processes.
+
+### Running Shell Commands from Jupyter Notebooks
+
+Jupyter Notebooks support running shell (terminal) commands directly in code cells. This allows you to interact with the operating system without leaving the notebook.
+
+To do this, simply prefix the command with an exclamation mark `!`.
+
+#### Examples
+
+```python
+# List files in the current directory
+!ls              # Linux
+!Get-ChildItem   # PowerShell (Windows)
+```
+
+```python
+# Check current working directory
+!pwd             # Linux or PowerShell
+```
+
+```python
+# Create a folder
+!mkdir test_folder        # Linux
+!New-Item -ItemType Directory -Name "test_folder"  # PowerShell
+```
+
+```python
+# Remove a folder
+!rm -r test_folder        # Linux
+!Remove-Item -Recurse -Force .\test_folder  # PowerShell
+```
+
+You can use this feature to experiment with terminal commands and observe their effects directly within your notebook environment.
